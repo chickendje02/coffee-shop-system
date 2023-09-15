@@ -1,20 +1,10 @@
 ## Table of contents
 * [General info](#general-info)
-* [User stories](#user-stories)
+* [Work flow](#work-flow)
 
 ## General info 
-**Hospital Queuing System**
+**Coffee Shop System**
 
-A system for management the queue in hospital. It will show the patient their current queue. Furthermore, system also provides patients their waiting time and it will be real-time update
-
-## User stories
-**Patient**
-|Requirements|User Story|Priority|
-|---|---|---
-Register to see the doctor|As a patient, I can register to see the doctor| High
-
-**Doctor**
-|Requirements|User Story|Priority|
-|---|---|---
-Examine patient|As a doctor, I can examine the patient| High
-Send patient to Ultrasound queue |As a doctor, I can send patient information to ultrasound and add them to queue | High
+A system for management the Coffee shop and Customer. System aims to provide simple step-by-step for customers to register/login and then they can find the closest available coffee shop so they can place order online. The system also provides the customer the current position's customer in the queue and expected waiting time.
+## Work flow
+![alt text](https://github.com/chickendje02/coffee-shop-system/blob/main/workflow.drawio.png)https://github.com/chickendje02/coffee-shop-system/blob/main/workflow.drawio.png)
