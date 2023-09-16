@@ -1,0 +1,34 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-menu-table
+      author: Trung Doan
+      changes:
+        - createTable:
+            tableName: menu
+            columns:
+              - column:
+                  name: id
+                  type: INT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(50)
+              - column:
+                  name: price
+                  type: DECIMAL
+                  defaultValue: "0.0"
+              - column:
+                  name: created_by
+                  type: varchar(20)
+              - column:
+                  name: created_date
+                  type: TIMESTAMP WITHOUT TIME ZONE
+              - column:
+                  name: updated_by
+                  type: varchar(20)
+              - column:
+                  name: updated_date
+                  type: TIMESTAMP WITHOUT TIME ZONE

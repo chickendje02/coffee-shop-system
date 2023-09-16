@@ -1,0 +1,5 @@
+#spring:
+#  datasource:
+#    url: jdbc:postgresql://database-1.cxlwp4xdrcpq.ap-southeast-2.rds.amazonaws.com:5432/coffee_shop
+#    username: postgres
+#    password: test12345
