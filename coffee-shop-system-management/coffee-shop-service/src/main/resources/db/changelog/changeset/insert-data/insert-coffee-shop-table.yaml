@@ -1,0 +1,104 @@
+databaseChangeLog:
+  - changeSet:
+      id: insert-coffee_shop-table
+      author: TrungDoan
+      changes:
+        - insert:
+            tableName: coffee_shop
+            columns:
+              - column:
+                  name: name
+                  value: "Trung Nguyen Coffee"
+              - column:
+                  name: location
+                  value: "Ho Chi Minh City"
+              - column:
+                  name: number_of_queue
+                  valueNumeric: "1"
+              - column:
+                  name: contact_detail
+                  value: "0123456789"
+              - column:
+                  name: open_time
+                  valueNumeric: "450"
+              - column:
+                  name: close_time
+                  valueNumeric: "1320"
+              - column:
+                  name: created_by
+                  value: system
+              - column:
+                  name: created_date
+                  valueDate: "now()"
+              - column:
+                  name: updated_by
+                  value: system
+              - column:
+                  name: updated_date
+                  valueDate: "now()"
+        - insert:
+            tableName: coffee_shop
+            columns:
+              - column:
+                  name: name
+                  value: "HighLand Coffee"
+              - column:
+                  name: location
+                  value: "Ha Noi City"
+              - column:
+                  name: number_of_queue
+                  valueNumeric: "1"
+              - column:
+                  name: contact_detail
+                  value: "0456789123"
+              - column:
+                  name: open_time
+                  valueNumeric: "450"
+              - column:
+                  name: close_time
+                  valueNumeric: "1350"
+              - column:
+                  name: created_by
+                  value: system
+              - column:
+                  name: created_date
+                  valueDate: "now()"
+              - column:
+                  name: updated_by
+                  value: system
+              - column:
+                  name: updated_date
+                  valueDate: "now()"
+        - insert:
+            tableName: coffee_shop
+            columns:
+              - column:
+                  name: name
+                  value: "Starbucks Coffee"
+              - column:
+                  name: location
+                  value: "Da Nang City"
+              - column:
+                  name: number_of_queue
+                  valueNumeric: "3"
+              - column:
+                  name: contact_detail
+                  value: "0987654321"
+              - column:
+                  name: open_time
+                  valueNumeric: "480"
+              - column:
+                  name: close_time
+                  valueNumeric: "1380"
+              - column:
+                  name: created_by
+                  value: system
+              - column:
+                  name: created_date
+                  valueDate: "now()"
+              - column:
+                  name: updated_by
+                  value: system
+              - column:
+                  name: updated_date
+                  valueDate: "now()"

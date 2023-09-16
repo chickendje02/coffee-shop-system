@@ -1,0 +1,54 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-coffee-shop-table
+      author: TrungDoan
+      preConditions:
+        onFail: MARK_RAN
+        not:
+          tableExists:
+            tableName: coffee_shop
+      changes:
+        - createTable:
+            tableName: coffee_shop
+            columns:
+              - column:
+                  name: id
+                  type: INT
+                  autoIncrement: true
+                  constraints:
+                    primaryKeyName: coffee_shop_primary_key
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(100)
+              - column:
+                  name: location
+                  type: varchar(100)
+              - column:
+                  name: number_of_queue
+                  type: int
+                  defaultValue: "1"
+              - column:
+                  name: contact_detail
+                  type: varchar(100)
+              - column:
+                  name: open_time
+                  type: int
+                  defaultValue: "480" # 08:00
+              - column:
+                  name: close_time
+                  type: int
+                  defaultValue: "1320" #22:00
+              - column:
+                  name: created_by
+                  type: varchar(20)
+              - column:
+                  name: created_date
+                  type: TIMESTAMP WITHOUT TIME ZONE
+              - column:
+                  name: updated_by
+                  type: varchar(20)
+              - column:
+                  name: updated_date
+                  type: TIMESTAMP WITHOUT TIME ZONE

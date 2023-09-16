@@ -1,23 +1,18 @@
 package com.trungnguyen.coffeeshopservice.entity;
 
 
-
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-
 
 
 @EqualsAndHashCode(callSuper = true)
 @Entity
 @Data
 @Table(name = "menu")
-public class Menu extends BaseEntity{
+public class Menu extends BaseEntity {
 
     @Id
     @GeneratedValue
@@ -28,5 +23,8 @@ public class Menu extends BaseEntity{
 
     @Column
     private BigDecimal price;
+
+
+
 
 }

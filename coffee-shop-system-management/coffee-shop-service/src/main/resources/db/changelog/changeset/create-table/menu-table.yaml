@@ -1,7 +1,12 @@
 databaseChangeLog:
   - changeSet:
       id: create-menu-table
-      author: Trung Doan
+      author: TrungDoan
+      preConditions:
+        onFail: MARK_RAN
+        not:
+          tableExists:
+            tableName: menu
       changes:
         - createTable:
             tableName: menu
@@ -11,6 +16,7 @@ databaseChangeLog:
                   type: INT
                   autoIncrement: true
                   constraints:
+                    primaryKeyName: menu_primary_key
                     primaryKey: true
                     nullable: false
               - column:

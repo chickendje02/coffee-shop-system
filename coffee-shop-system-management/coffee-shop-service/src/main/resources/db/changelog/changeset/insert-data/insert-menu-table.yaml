@@ -1,0 +1,89 @@
+databaseChangeLog:
+  - changeSet:
+      id: insert-menu-table-2
+      author: TrungDoan
+      changes:
+        - insert:
+            tableName: menu
+            columns:
+              - column:
+                  name: name
+                  value: "Hot Coffee"
+              - column:
+                  name: price
+                  valueNumeric: "10.5"
+              - column:
+                  name: created_by
+                  value: system
+              - column:
+                  name: created_date
+                  valueDate: "now()"
+              - column:
+                  name: updated_by
+                  value: system
+              - column:
+                  name: updated_date
+                  valueDate: "now()"
+        - insert:
+            tableName: menu
+            columns:
+              - column:
+                  name: name
+                  value: "Cold Coffee"
+              - column:
+                  name: price
+                  valueNumeric: "9.5"
+              - column:
+                  name: created_by
+                  value: system
+              - column:
+                  name: created_date
+                  valueDate: "now()"
+              - column:
+                  name: updated_by
+                  value: system
+              - column:
+                  name: updated_date
+                  valueDate: "now()"
+        - insert:
+            tableName: menu
+            columns:
+              - column:
+                  name: name
+                  value: "Simple Coffee"
+              - column:
+                  name: price
+                  valueNumeric: "8.5"
+              - column:
+                  name: created_by
+                  value: system
+              - column:
+                  name: created_date
+                  valueDate: "now()"
+              - column:
+                  name: updated_by
+                  value: system
+              - column:
+                  name: updated_date
+                  valueDate: "now()"
+        - insert:
+            tableName: menu
+            columns:
+              - column:
+                  name: name
+                  value: "Milktea Coffee"
+              - column:
+                  name: price
+                  valueNumeric: "14"
+              - column:
+                  name: created_by
+                  value: system
+              - column:
+                  name: created_date
+                  valueDate: "now()"
+              - column:
+                  name: updated_by
+                  value: system
+              - column:
+                  name: updated_date
+                  valueDate: "now()"
