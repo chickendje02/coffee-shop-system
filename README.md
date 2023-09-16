@@ -1,5 +1,5 @@
 ## Table of contents
-* [General infos](#general-infos)
+* [General info](#general-info)
 * [Workflow](#workflow)
 * [System Design](#system-design)
 
