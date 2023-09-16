@@ -1,7 +1,7 @@
 ## Table of contents
-* [General info](#general-info)
+* [General infos](#general-info)
 * [Workflow](#workflow)
-* [System Design](#system-design) 
+* [System Design](#system-design)
 
 ## General info 
 **Coffee Shop System**
@@ -13,3 +13,4 @@ A system for management the Coffee shop and Customer. System aims to provide sim
 ## System Design
 
 ![System Design](https://github.com/chickendje02/coffee-shop-system/blob/main/design_backend.drawio.png)
+
