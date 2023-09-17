@@ -1,0 +1,34 @@
+-- To Create Order
+curl --location 'localhost:8083/v1/order' \
+--header 'Content-Type: application/json' \
+--data '{
+    "customerId": 1,
+    "coffeeShopId": 3,
+    "customerFullName": "Sherwin Quoc Doan",
+    "customerPhoneNumber": "0789456123",
+    "customerAddress": "40 Le Van Sy",
+    "totalPrice": 20.5,
+    "listDetails":[
+        {
+            "menuShopId": 1,
+            "quantity": 2
+        },
+        {
+            "menuShopId": 2,
+            "quantity": 2
+        }
+    ]
+}'
+
+
+-- To action on an order
+curl --location --request PUT 'localhost:8083/v1/queue' \
+--header 'Content-Type: application/json' \
+--data '{
+    "queueId": 3,
+    "orderId": 6,
+    "coffeeShopId": 3,
+    "customerId": 1,
+    "status": "DONE",
+    "action":"CANCELED_BY_CUSTOMER"
+}'
