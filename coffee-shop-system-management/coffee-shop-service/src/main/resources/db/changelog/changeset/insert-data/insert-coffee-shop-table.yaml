@@ -7,6 +7,9 @@ databaseChangeLog:
             tableName: coffee_shop
             columns:
               - column:
+                  name: id
+                  value: "1"
+              - column:
                   name: name
                   value: "Trung Nguyen Coffee"
               - column:
@@ -40,6 +43,9 @@ databaseChangeLog:
             tableName: coffee_shop
             columns:
               - column:
+                  name: id
+                  value: "2"
+              - column:
                   name: name
                   value: "HighLand Coffee"
               - column:
@@ -72,6 +78,9 @@ databaseChangeLog:
         - insert:
             tableName: coffee_shop
             columns:
+              - column:
+                  name: id
+                  value: "3"
               - column:
                   name: name
                   value: "Starbucks Coffee"

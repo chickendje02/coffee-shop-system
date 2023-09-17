@@ -15,7 +15,7 @@ import java.util.List;
 public class CoffeeShop extends BaseEntity {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
     @Column

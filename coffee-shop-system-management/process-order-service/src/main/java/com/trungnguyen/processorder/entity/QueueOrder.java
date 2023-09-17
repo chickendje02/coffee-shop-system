@@ -8,11 +8,12 @@ import javax.persistence.*;
 @EqualsAndHashCode(callSuper = true)
 @Entity
 @Data
-@Table(name = "queue")
+@Table(name = "queue_order")
 public class QueueOrder extends BaseEntity {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO , generator="queue_order_sequence")
+    @SequenceGenerator(name = "queue_order_sequence", sequenceName = "queue_order_seq", initialValue = 1, allocationSize=1)
     @Column(name = "queue_order_id")
     private Integer id;
 
@@ -20,7 +21,7 @@ public class QueueOrder extends BaseEntity {
     private Integer queueId;
 
     @Column(name = "order_id")
-    private Integer orderid;
+    private Integer orderId;
 
     @Column(name = "current_position")
     private Integer currentPosition;

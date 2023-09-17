@@ -1,13 +1,13 @@
 package com.trungnguyen.processorder.service.impl;
 
-import com.trungnguyen.processorder.entity.Order;
-import com.trungnguyen.processorder.entity.OrderDetail;
-import com.trungnguyen.processorder.entity.Queue;
-import com.trungnguyen.processorder.entity.QueueOrder;
+import com.trungnguyen.processorder.constant.HandlerUtils;
+import com.trungnguyen.processorder.entity.*;
 import com.trungnguyen.processorder.eumeration.OrderStatus;
 import com.trungnguyen.processorder.exception.CommonBusinessException;
 import com.trungnguyen.processorder.model.OrderDetailUpdateModel;
+import com.trungnguyen.processorder.model.OrderSuccessMessage;
 import com.trungnguyen.processorder.model.OrderUpdateModel;
+import com.trungnguyen.processorder.producer.ProcessOrderProducer;
 import com.trungnguyen.processorder.repository.OrderDetailRepository;
 import com.trungnguyen.processorder.repository.OrderRepository;
 import com.trungnguyen.processorder.repository.QueueOrderRepository;
@@ -19,13 +19,17 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 import java.util.stream.Collectors;
 
 @Service
 @Log4j2
 public class OrderServiceImpl implements OrderService {
+
 
     @Autowired
     OrderRepository orderRepository;
@@ -39,17 +43,27 @@ public class OrderServiceImpl implements OrderService {
     @Autowired
     QueueOrderRepository queueOrderRepository;
 
+    @Autowired
+    ProcessOrderProducer producer;
+
+    @Autowired
+    OrderLogServiceImpl orderLogService;
+
     @Override
     @Transactional
-    public void createOrder(OrderUpdateModel model) {
-        Order order = model.convertToOrderEntity(OrderStatus.WAITING);
-        Order orderSaved = orderRepository.save(order);
+    public Map<String, Object> createOrder(OrderUpdateModel model) {
+        OrderCustomer order = model.convertToOrderEntity(OrderStatus.WAITING);
+        OrderCustomer orderSaved = orderRepository.save(order);
         var orderSavedTask = CompletableFuture.runAsync(() -> saveOrder(model.getListDetails(), orderSaved.getId()));
-        var addToQueueTask = CompletableFuture.runAsync(() -> saveQueue(orderSaved, model.getCoffeeShopId()));
+        var addToQueueTask = CompletableFuture.runAsync(() -> saveQueueOrder(orderSaved, model.getCoffeeShopId()));
+        CompletableFuture.runAsync(() -> notifyCustomerAndAdmin(orderSaved, model.getCoffeeShopId()));
+        CompletableFuture.runAsync(() -> insertLog(orderSaved, model.getCoffeeShopId()));
         try {
             CompletableFuture.allOf(orderSavedTask, addToQueueTask).get();
+            Map<String, Object> result = new HashMap<>();
+            return HandlerUtils.buildSuccessMapResponse(result);
         } catch (Exception e) {
-            log.error("Failed to handle saved Task {}", e.getMessage());
+            log.debug("Failed to handle saved Task {}", e.getMessage());
             throw new CommonBusinessException("Internal Server Error", HttpStatus.INTERNAL_SERVER_ERROR.value());
         }
     }
@@ -59,13 +73,33 @@ public class OrderServiceImpl implements OrderService {
         orderDetailRepository.saveAll(listEntity);
     }
 
-    private void saveQueue(Order orderSaved, int coffeeShopId) {
+    private void saveQueueOrder(OrderCustomer orderSaved, int coffeeShopId) {
         Queue queues = queueRepository.findAvailableQueueByCoffeeShopId(coffeeShopId);
-        int currentPosition = queueOrderRepository.findLastQueue(queues.getId()).getCurrentPosition();
+        Optional<Queue> queueWithLeastOrder = queueRepository.findQueueOrderWithTheLeastWaiting(coffeeShopId);
+        Optional<QueueOrder> theLastPositionOfQueue = queueOrderRepository.findQueueWithTheLeastWaiting(coffeeShopId);
+        int currentPosition = theLastPositionOfQueue.isPresent() ? theLastPositionOfQueue.get().getCurrentPosition() : 0;
+        int queueId = queueWithLeastOrder.isPresent() ? queueWithLeastOrder.get().getId() : queues.getId();
         QueueOrder queueOrder = new QueueOrder();
-        queueOrder.setQueueId(queues.getId());
-        queueOrder.setOrderid(orderSaved.getId());
+        queueOrder.setQueueId(queueId);
+        queueOrder.setOrderId(orderSaved.getId());
         queueOrder.setCurrentPosition(currentPosition + 1);
         queueOrderRepository.save(queueOrder);
+    }
+
+    private void notifyCustomerAndAdmin(OrderCustomer orderSaved, int coffeeShopId) {
+        OrderSuccessMessage orderSuccessMessage = OrderSuccessMessage.builder()
+                .customerId(orderSaved.getCustomerId())
+                .coffeeShopId(coffeeShopId)
+                .build();
+        producer.sendMessage(orderSuccessMessage, "order-success-topic");
+    }
+
+    private void insertLog(OrderCustomer orderSaved, int coffeeShopId) {
+        OrderLog orderLog = new OrderLog();
+        orderLog.setOrderId(orderSaved.getId());
+        orderLog.setStatus(orderSaved.getStatus());
+        orderLog.setCoffeeShopId(coffeeShopId);
+        orderLog.setLogBy(orderSaved.getUpdatedBy());
+        orderLogService.insertLog(orderLog);
     }
 }

@@ -12,6 +12,14 @@ databaseChangeLog:
             tableName: queue_order
             columns:
               - column:
+                  name: queue_order_id
+                  type: INT
+                  autoIncrement: true
+                  constraints:
+                    primaryKeyName: queue_order_primary_key
+                    primaryKey: true
+                    nullable: false
+              - column:
                   name: queue_id
                   type: int
               - column:

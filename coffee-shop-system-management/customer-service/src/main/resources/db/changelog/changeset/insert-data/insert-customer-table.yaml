@@ -7,6 +7,9 @@ databaseChangeLog:
             tableName: customer
             columns:
               - column:
+                  name: id
+                  value: "1"
+              - column:
                   name: phone_number
                   value: "0456789123"
               - column:
@@ -37,6 +40,9 @@ databaseChangeLog:
             tableName: customer
             columns:
               - column:
+                    name: id
+                    value: "2"
+              - column:
                   name: phone_number
                   value: "0123456789"
               - column:
@@ -66,6 +72,9 @@ databaseChangeLog:
         - insert:
             tableName: customer
             columns:
+              - column:
+                  name: id
+                  value: "3"
               - column:
                   name: phone_number
                   value: "0789456123"

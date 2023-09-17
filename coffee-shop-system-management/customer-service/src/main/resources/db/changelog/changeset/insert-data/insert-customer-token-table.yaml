@@ -7,6 +7,9 @@ databaseChangeLog:
             tableName: customer_token
             columns:
               - column:
+                  name: id
+                  value: "1"
+              - column:
                   name: customer_id
                   value: "1"
               - column:
@@ -33,6 +36,9 @@ databaseChangeLog:
         - insert:
             tableName: customer_token
             columns:
+              - column:
+                  name: id
+                  value: "2"
               - column:
                   name: customer_id
                   value: "2"
@@ -61,6 +67,9 @@ databaseChangeLog:
             tableName: customer_token
             columns:
               - column:
+                  name: id
+                  value: "3"
+              - column:
                   name: customer_id
                   value: "2"
               - column:
@@ -87,6 +96,9 @@ databaseChangeLog:
         - insert:
             tableName: customer_token
             columns:
+              - column:
+                  name: id
+                  value: "4"
               - column:
                   name: customer_id
                   value: "3"

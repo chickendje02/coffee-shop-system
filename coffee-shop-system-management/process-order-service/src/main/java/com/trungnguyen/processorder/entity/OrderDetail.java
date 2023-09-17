@@ -13,7 +13,8 @@ import javax.persistence.*;
 public class OrderDetail extends BaseEntity {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO , generator="order_detail_sequence")
+    @SequenceGenerator(name = "order_detail_sequence", sequenceName = "order_detail_seq", initialValue = 1, allocationSize=1)
     @Column(name = "order_detail_id")
     private int orderDetailId;
 

@@ -10,10 +10,12 @@ import java.math.BigDecimal;
 @EqualsAndHashCode(callSuper = true)
 @Entity
 @Data
-@Table(name = "order")
-public class Order extends BaseEntity {
+@Table(name = "order_customer")
+public class OrderCustomer extends BaseEntity {
+
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO , generator="order_customer_sequence")
+    @SequenceGenerator(name = "order_customer_sequence", sequenceName = "order_customer_seq", initialValue = 1, allocationSize=1)
     private int id;
 
     @Column(name = "customer_id")
@@ -29,5 +31,5 @@ public class Order extends BaseEntity {
     private BigDecimal totalPrice;
 
     @Column(name = "status")
-    private OrderStatus status;
+    private String status;
 }

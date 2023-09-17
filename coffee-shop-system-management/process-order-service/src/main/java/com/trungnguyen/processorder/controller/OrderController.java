@@ -4,10 +4,9 @@ import com.trungnguyen.processorder.model.OrderUpdateModel;
 import com.trungnguyen.processorder.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Map;
 
 @RestController
 @RequestMapping("/v1/order")
@@ -17,8 +16,7 @@ public class OrderController {
     OrderService orderService;
 
     @PostMapping
-    public ResponseEntity createOrder(@RequestBody OrderUpdateModel model) {
-        orderService.createOrder(model);
-        return ResponseEntity.ok("Ok");
+    public ResponseEntity<Map<String,Object>> createOrder(@RequestBody OrderUpdateModel model) {
+        return ResponseEntity.ok(orderService.createOrder(model));
     }
 }

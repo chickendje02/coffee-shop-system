@@ -12,7 +12,7 @@ import javax.persistence.*;
 public class CustomerAddress extends BaseEntity {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
     @Column(name = "customer_id")

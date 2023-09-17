@@ -1,7 +1,7 @@
 package com.trungnguyen.processorder.model;
 
 
-import com.trungnguyen.processorder.entity.Order;
+import com.trungnguyen.processorder.entity.OrderCustomer;
 import com.trungnguyen.processorder.eumeration.OrderStatus;
 import lombok.Data;
 
@@ -26,13 +26,14 @@ public class OrderUpdateModel {
     List<OrderDetailUpdateModel> listDetails;
 
 
-    public Order convertToOrderEntity(OrderStatus status) {
-        Order order = new Order();
+    public OrderCustomer convertToOrderEntity(OrderStatus status) {
+        OrderCustomer order = new OrderCustomer();
         order.setCustomerId(this.getCustomerId());
         order.setCustomerFullName(this.getCustomerFullName());
         order.setCustomerAddress(this.getCustomerAddress());
         order.setTotalPrice(this.getTotalPrice());
-        order.setStatus(status);
+        order.setStatus(status.name());
+        order.setUpdatedBy(this.getCustomerFullName());
         return order;
     }
 

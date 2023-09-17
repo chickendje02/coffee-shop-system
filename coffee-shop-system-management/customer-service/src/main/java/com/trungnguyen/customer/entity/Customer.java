@@ -13,7 +13,7 @@ import java.util.List;
 public class Customer extends BaseEntity {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
     @Column(name = "phone_number")

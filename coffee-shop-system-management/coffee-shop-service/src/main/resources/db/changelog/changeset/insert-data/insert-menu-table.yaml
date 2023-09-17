@@ -1,11 +1,14 @@
 databaseChangeLog:
   - changeSet:
-      id: insert-menu-table-2
+      id: insert-menu-table
       author: TrungDoan
       changes:
         - insert:
             tableName: menu
             columns:
+              - column:
+                  name: id
+                  value: "1"
               - column:
                   name: name
                   value: "Hot Coffee"
@@ -28,6 +31,9 @@ databaseChangeLog:
             tableName: menu
             columns:
               - column:
+                  name: id
+                  value: "2"
+              - column:
                   name: name
                   value: "Cold Coffee"
               - column:
@@ -49,6 +55,9 @@ databaseChangeLog:
             tableName: menu
             columns:
               - column:
+                  name: id
+                  value: "3"
+              - column:
                   name: name
                   value: "Simple Coffee"
               - column:
@@ -69,6 +78,9 @@ databaseChangeLog:
         - insert:
             tableName: menu
             columns:
+              - column:
+                  name: id
+                  value: "4"
               - column:
                   name: name
                   value: "Milktea Coffee"

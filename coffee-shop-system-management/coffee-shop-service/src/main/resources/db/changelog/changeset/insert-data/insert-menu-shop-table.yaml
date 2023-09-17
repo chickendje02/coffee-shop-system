@@ -7,11 +7,14 @@ databaseChangeLog:
             tableName: menu_shop
             columns:
               - column:
+                  name: menu_shop_id
+                  value: "1"
+              - column:
                   name: coffee_shop_id
                   valueNumeric: "1"
               - column:
                   name: menu_id
-                  valueNumeric: "5"
+                  valueNumeric: "1"
               - column:
                   name: expected_min_time
                   valueNumeric: "10"
@@ -34,11 +37,14 @@ databaseChangeLog:
             tableName: menu_shop
             columns:
               - column:
+                    name: menu_shop_id
+                    value: "2"
+              - column:
                   name: coffee_shop_id
                   valueNumeric: "1"
               - column:
                   name: menu_id
-                  valueNumeric: "6"
+                  valueNumeric: "2"
               - column:
                   name: expected_min_time
                   valueNumeric: "5"
@@ -61,11 +67,14 @@ databaseChangeLog:
             tableName: menu_shop
             columns:
               - column:
+                  name: menu_shop_id
+                  value: "3"
+              - column:
                   name: coffee_shop_id
                   valueNumeric: "1"
               - column:
                   name: menu_id
-                  valueNumeric: "7"
+                  valueNumeric: "3"
               - column:
                   name: expected_min_time
                   valueNumeric: "8"
@@ -88,11 +97,14 @@ databaseChangeLog:
             tableName: menu_shop
             columns:
               - column:
+                  name: menu_shop_id
+                  value: "4"
+              - column:
                   name: coffee_shop_id
                   valueNumeric: "1"
               - column:
                   name: menu_id
-                  valueNumeric: "9"
+                  valueNumeric: "4"
               - column:
                   name: expected_min_time
                   valueNumeric: "4"
@@ -116,11 +128,14 @@ databaseChangeLog:
             tableName: menu_shop
             columns:
               - column:
+                  name: menu_shop_id
+                  value: "5"
+              - column:
                   name: coffee_shop_id
                   valueNumeric: "2"
               - column:
                   name: menu_id
-                  valueNumeric: "5"
+                  valueNumeric: "1"
               - column:
                   name: expected_min_time
                   valueNumeric: "10"
@@ -143,11 +158,14 @@ databaseChangeLog:
             tableName: menu_shop
             columns:
               - column:
+                  name: menu_shop_id
+                  value: "6"
+              - column:
                   name: coffee_shop_id
                   valueNumeric: "2"
               - column:
                   name: menu_id
-                  valueNumeric: "6"
+                  valueNumeric: "2"
               - column:
                   name: expected_min_time
                   valueNumeric: "3"
@@ -170,11 +188,14 @@ databaseChangeLog:
             tableName: menu_shop
             columns:
               - column:
+                  name: menu_shop_id
+                  value: "7"
+              - column:
                   name: coffee_shop_id
                   valueNumeric: "2"
               - column:
                   name: menu_id
-                  valueNumeric: "7"
+                  valueNumeric: "3"
               - column:
                   name: expected_min_time
                   valueNumeric: "8"
@@ -198,11 +219,14 @@ databaseChangeLog:
             tableName: menu_shop
             columns:
               - column:
+                  name: menu_shop_id
+                  value: "8"
+              - column:
                   name: coffee_shop_id
                   valueNumeric: "3"
               - column:
                   name: menu_id
-                  valueNumeric: "5"
+                  valueNumeric: "1"
               - column:
                   name: expected_min_time
                   valueNumeric: "10"
@@ -225,11 +249,14 @@ databaseChangeLog:
             tableName: menu_shop
             columns:
               - column:
+                  name: menu_shop_id
+                  value: "9"
+              - column:
                   name: coffee_shop_id
                   valueNumeric: "3"
               - column:
                   name: menu_id
-                  valueNumeric: "9"
+                  valueNumeric: "4"
               - column:
                   name: expected_min_time
                   valueNumeric: "10"

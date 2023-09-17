@@ -15,7 +15,7 @@ import java.math.BigDecimal;
 public class Menu extends BaseEntity {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
     @Column

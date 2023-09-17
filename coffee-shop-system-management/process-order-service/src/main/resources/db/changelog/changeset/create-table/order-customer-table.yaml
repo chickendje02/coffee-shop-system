@@ -1,15 +1,15 @@
 databaseChangeLog:
   - changeSet:
-      id: create-order-table
+      id: create-order-customer-table
       author: TrungDoan
       preConditions:
         onFail: MARK_RAN
         not:
           tableExists:
-            tableName: order
+            tableName: order_customer #don't use name "order" since it has problem with JPA
       changes:
         - createTable:
-            tableName: order
+            tableName: order_customer
             columns:
               - column:
                   name: id

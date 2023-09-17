@@ -1,12 +1,12 @@
 spring:
   kafka:
     bootstrap-servers: localhost:9092
-    #    consumer:
-    #      bootstrap-servers: localhost:9092
-    #      group-id: group-tenant1-id
-    #      auto-offset-reset: earliest
-    #      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-    #      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    consumer:
+      bootstrap-servers: localhost:9092
+      group-id: group-order-cancel
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.apache.kafka.common.serialization.StringSerializer

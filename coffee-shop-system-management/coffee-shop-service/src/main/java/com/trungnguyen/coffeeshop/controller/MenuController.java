@@ -17,16 +17,11 @@ import java.util.List;
 public class MenuController {
 
     @Autowired
-    private CoffeeShopProducer coffeeShopProducer;
-
-    @Autowired
     private MenuService menuService;
 
 
-
     @GetMapping
-    public ResponseEntity<List<Menu>> getList(){
-        coffeeShopProducer.sendMessage("test");
+    public ResponseEntity<List<Menu>> getList() {
         return ResponseEntity.ok(menuService.getListMenu());
     }
 }

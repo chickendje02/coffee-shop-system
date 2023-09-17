@@ -1,0 +1,8 @@
+CREATE DATABASE coffee_shop_system_management;
+
+CREATE SCHEMA coffee_shop_system_management.coffee_shop_management;
+
+CREATE SCHEMA coffee_shop_system_management.customer_management;
+
+CREATE SCHEMA coffee_shop_system_management.queue_order_management;
+
