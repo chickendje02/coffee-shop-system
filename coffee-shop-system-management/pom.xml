@@ -6,11 +6,13 @@
 
     <groupId>com.trungnguyen</groupId>
     <artifactId>coffee-shop-system-management</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
     <packaging>pom</packaging>
 
     <modules>
         <module>coffee-shop-service</module>
+        <module>customer-service</module>
+        <module>process-order-service</module>
     </modules>
 
 

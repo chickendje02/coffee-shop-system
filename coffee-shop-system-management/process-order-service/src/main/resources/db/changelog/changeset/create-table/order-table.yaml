@@ -1,0 +1,48 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-order-table
+      author: TrungDoan
+      preConditions:
+        onFail: MARK_RAN
+        not:
+          tableExists:
+            tableName: order
+      changes:
+        - createTable:
+            tableName: order
+            columns:
+              - column:
+                  name: id
+                  type: INT
+                  autoIncrement: true
+                  constraints:
+                    primaryKeyName: order_primary_key
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: customer_id
+                  type: int
+              - column:
+                  name: customer_full_name
+                  type: varchar(60)
+              - column:
+                  name: customer_address
+                  type: varchar(100)
+              - column:
+                  name: total_price
+                  type: DECIMAL
+              - column:
+                  name: status
+                  type: varchar(20) #enum('WAITING','CANCELED_BY_SHOP','CANCELED_BY_CUSTOMER','PROCESSING','DONE')
+              - column:
+                  name: created_by
+                  type: varchar(20)
+              - column:
+                  name: created_date
+                  type: TIMESTAMP WITHOUT TIME ZONE
+              - column:
+                  name: updated_by
+                  type: varchar(20)
+              - column:
+                  name: updated_date
+                  type: TIMESTAMP WITHOUT TIME ZONE

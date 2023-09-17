@@ -10,9 +10,8 @@
 	</parent>
 	<groupId>com.trungnguyen</groupId>
 	<artifactId>coffee-shop-service</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
 	<name>coffee-shop-service</name>
-	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>

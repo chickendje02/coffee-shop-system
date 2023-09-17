@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.trungnguyen</groupId>
-	<artifactId>customer-service</artifactId>
+	<artifactId>process-order-service</artifactId>
 	<version>0.0.1</version>
-	<name>customer-service</name>
+	<name>process-order-service</name>
 	<properties>
 		<java.version>11</java.version>
 	</properties>

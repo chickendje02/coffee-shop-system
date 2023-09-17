@@ -1,0 +1,42 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-order-detail-table
+      author: TrungDoan
+      preConditions:
+        onFail: MARK_RAN
+        not:
+          tableExists:
+            tableName: order_detail
+      changes:
+        - createTable:
+            tableName: order_detail
+            columns:
+              - column:
+                  name: order_detail_id
+                  type: INT
+                  autoIncrement: true
+                  constraints:
+                    primaryKeyName: order_detail_primary_key
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: order_id
+                  type: INT
+              - column:
+                  name: menu_shop_id
+                  type: INT
+              - column:
+                  name: quantity
+                  type: int
+              - column:
+                  name: created_by
+                  type: varchar(20)
+              - column:
+                  name: created_date
+                  type: TIMESTAMP WITHOUT TIME ZONE
+              - column:
+                  name: updated_by
+                  type: varchar(20)
+              - column:
+                  name: updated_date
+                  type: TIMESTAMP WITHOUT TIME ZONE

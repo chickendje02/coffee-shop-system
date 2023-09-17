@@ -11,8 +11,14 @@ import java.time.LocalDateTime;
 @MappedSuperclass
 public class BaseEntity {
 
+    @Column(name = "created_by")
+    private String createdBy;
+
     @Column(name = "created_date", columnDefinition = "TIMESTAMP")
     private LocalDateTime createdDate = LocalDateTime.now();
+
+    @Column(name = "updated_by")
+    private String updatedBy;
 
     @Column(name = "updated_date", columnDefinition = "TIMESTAMP")
     private LocalDateTime updatedDate = LocalDateTime.now();

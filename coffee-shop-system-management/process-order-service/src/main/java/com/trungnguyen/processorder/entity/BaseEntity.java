@@ -1,4 +1,4 @@
-package com.trungnguyen.coffeeshop.entity;
+package com.trungnguyen.processorder.entity;
 
 
 import lombok.Data;

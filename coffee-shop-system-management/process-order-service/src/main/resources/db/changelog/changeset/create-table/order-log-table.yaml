@@ -1,0 +1,36 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-order-table
+      author: TrungDoan
+      preConditions:
+        onFail: MARK_RAN
+        not:
+          tableExists:
+            tableName: order_log
+      changes:
+        - createTable:
+            tableName: order_log
+            columns:
+              - column:
+                  name: id
+                  type: INT
+                  autoIncrement: true
+                  constraints:
+                    primaryKeyName: order_log_primary_key
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: order_id
+                  type: int
+              - column:
+                  name: coffee_shop_id
+                  type: int
+              - column:
+                  name: status
+                  type: varchar(20) #enum('WAITING','CANCELED_BY_SHOP','CANCELED_BY_CUSTOMER','PROCESSING','DONE')
+              - column:
+                  name: log_by
+                  type: varchar(20)
+              - column:
+                  name: log_time
+                  type: TIMESTAMP WITHOUT TIME ZONE

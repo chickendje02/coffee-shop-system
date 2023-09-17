@@ -1,0 +1,34 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-queue-order-table
+      author: TrungDoan
+      preConditions:
+        onFail: MARK_RAN
+        not:
+          tableExists:
+            tableName: queue_order
+      changes:
+        - createTable:
+            tableName: queue_order
+            columns:
+              - column:
+                  name: queue_id
+                  type: int
+              - column:
+                  name: order_id
+                  type: int
+              - column:
+                  name: current_position
+                  type: int
+              - column:
+                  name: created_by
+                  type: varchar(20)
+              - column:
+                  name: created_date
+                  type: TIMESTAMP WITHOUT TIME ZONE
+              - column:
+                  name: updated_by
+                  type: varchar(20)
+              - column:
+                  name: updated_date
+                  type: TIMESTAMP WITHOUT TIME ZONE

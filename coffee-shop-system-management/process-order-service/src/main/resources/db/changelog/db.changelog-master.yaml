@@ -1,0 +1,7 @@
+databaseChangeLog:
+  #Create Table
+  - includeAll:
+      path: db/changelog/changeset/create-table
+  #Insert Data
+  - includeAll:
+      path: db/changelog/changeset/insert-data
