@@ -70,5 +70,5 @@ I haven't finished this yet but my plan is using Github Action to create CI/CD t
    + There's a shopping cart so they can add any drink item at specific coffee shop they like and it will be expired for configuration time  <br/>
 * For System:
    + Apply Cache such as Redis
-   + Applying API Gateway
+   + Apply API Gateway
  
