@@ -2,6 +2,7 @@
 * [General info](#general-info)
 * [Technologies](#technologies)
 * [Workflow](#workflow)
+* [Database Design](#database-design)
 * [System Design](#system-design)
 * [Security Solution](#security-solution)
 
@@ -20,6 +21,9 @@ A system for management the Coffee shop and Customer. System aims to provide sim
 * Spring Security
 ## Workflow
 ![Workflow](https://github.com/chickendje02/coffee-shop-system/blob/main/workflow.png)
+
+# Database Design
+![Workflow](https://github.com/chickendje02/coffee-shop-system/blob/main/design_db_coffee_shop.drawio.png)
 
 ## System Design
 ![System Design](https://github.com/chickendje02/coffee-shop-system/blob/main/design_backend.drawio.png)
