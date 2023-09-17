@@ -1,0 +1,101 @@
+databaseChangeLog:
+  - changeSet:
+      id: insert-customer-address-table
+      author: TrungDoan
+      changes:
+        - insert:
+            tableName: customer_address
+            columns:
+              - column:
+                  name: customer_id
+                  valueNumeric: "1"
+              - column:
+                  name: address
+                  value: "40 Le Van Sy Street"
+              - column:
+                  name: home_or_office
+                  value: "HOME"
+              - column:
+                  name: created_by
+                  value: system
+              - column:
+                  name: created_date
+                  valueDate: "now()"
+              - column:
+                  name: updated_by
+                  value: system
+              - column:
+                  name: updated_date
+                  valueDate: "now()"
+        - insert:
+            tableName: customer_address
+            columns:
+              - column:
+                  name: customer_id
+                  valueNumeric: "1"
+              - column:
+                  name: address
+                  value: "80 Le Van Sy Street"
+              - column:
+                  name: home_or_office
+                  value: "OFFICE"
+              - column:
+                  name: created_by
+                  value: system
+              - column:
+                  name: created_date
+                  valueDate: "now()"
+              - column:
+                  name: updated_by
+                  value: system
+              - column:
+                  name: updated_date
+                  valueDate: "now()"
+        - insert:
+            tableName: customer_address
+            columns:
+              - column:
+                  name: customer_id
+                  valueNumeric: "2"
+              - column:
+                  name: address
+                  value: "60 Number One Street"
+              - column:
+                  name: home_or_office
+                  value: "HOME"
+              - column:
+                  name: created_by
+                  value: system
+              - column:
+                  name: created_date
+                  valueDate: "now()"
+              - column:
+                  name: updated_by
+                  value: system
+              - column:
+                  name: updated_date
+                  valueDate: "now()"
+        - insert:
+            tableName: customer_address
+            columns:
+              - column:
+                  name: customer_id
+                  valueNumeric: "3"
+              - column:
+                  name: home_or_office
+                  value: "HOME"
+              - column:
+                  name: address
+                  value: "40 Batman Street"
+              - column:
+                  name: created_by
+                  value: system
+              - column:
+                  name: created_date
+                  valueDate: "now()"
+              - column:
+                  name: updated_by
+                  value: system
+              - column:
+                  name: updated_date
+                  valueDate: "now()"

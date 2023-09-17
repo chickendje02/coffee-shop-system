@@ -1,4 +1,4 @@
-package com.trungnguyen.coffeeshopservice.entity;
+package com.trungnguyen.coffeeshop.entity;
 
 
 import lombok.Data;

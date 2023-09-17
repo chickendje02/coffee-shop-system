@@ -1,6 +1,6 @@
-package com.trungnguyen.coffeeshopservice.service;
+package com.trungnguyen.coffeeshop.service;
 
-import com.trungnguyen.coffeeshopservice.entity.Menu;
+import com.trungnguyen.coffeeshop.entity.Menu;
 
 import java.util.List;
 

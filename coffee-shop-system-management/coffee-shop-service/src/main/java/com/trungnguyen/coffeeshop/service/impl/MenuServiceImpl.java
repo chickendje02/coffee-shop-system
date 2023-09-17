@@ -1,8 +1,8 @@
-package com.trungnguyen.coffeeshopservice.service.impl;
+package com.trungnguyen.coffeeshop.service.impl;
 
-import com.trungnguyen.coffeeshopservice.entity.Menu;
-import com.trungnguyen.coffeeshopservice.repository.MenuRepository;
-import com.trungnguyen.coffeeshopservice.service.MenuService;
+import com.trungnguyen.coffeeshop.entity.Menu;
+import com.trungnguyen.coffeeshop.repository.MenuRepository;
+import com.trungnguyen.coffeeshop.service.MenuService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

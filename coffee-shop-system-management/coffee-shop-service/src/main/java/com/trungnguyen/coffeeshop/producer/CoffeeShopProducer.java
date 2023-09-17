@@ -1,4 +1,4 @@
-package com.trungnguyen.coffeeshopservice.producer;
+package com.trungnguyen.coffeeshop.producer;
 
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.springframework.beans.factory.annotation.Autowired;

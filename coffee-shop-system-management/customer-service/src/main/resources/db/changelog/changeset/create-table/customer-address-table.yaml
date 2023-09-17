@@ -1,0 +1,42 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-customer-address-table
+      author: TrungDoan
+      preConditions:
+        onFail: MARK_RAN
+        not:
+          tableExists:
+            tableName: customer_address
+      changes:
+        - createTable:
+            tableName: customer_address
+            columns:
+              - column:
+                  name: id
+                  type: INT
+                  autoIncrement: true
+                  constraints:
+                    primaryKeyName: customer_address_primary_key
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: customer_id
+                  type: int
+              - column:
+                  name: home_or_office
+                  type: varchar(10)
+              - column:
+                  name: address
+                  type: varchar(100)
+              - column:
+                  name: created_by
+                  type: varchar(20)
+              - column:
+                  name: created_date
+                  type: TIMESTAMP WITHOUT TIME ZONE
+              - column:
+                  name: updated_by
+                  type: varchar(20)
+              - column:
+                  name: updated_date
+                  type: TIMESTAMP WITHOUT TIME ZONE

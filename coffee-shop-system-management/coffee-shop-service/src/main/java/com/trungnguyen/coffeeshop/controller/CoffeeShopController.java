@@ -1,8 +1,8 @@
-package com.trungnguyen.coffeeshopservice.controller;
+package com.trungnguyen.coffeeshop.controller;
 
 
-import com.trungnguyen.coffeeshopservice.entity.CoffeeShop;
-import com.trungnguyen.coffeeshopservice.service.CoffeeShopService;
+import com.trungnguyen.coffeeshop.entity.CoffeeShop;
+import com.trungnguyen.coffeeshop.service.CoffeeShopService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

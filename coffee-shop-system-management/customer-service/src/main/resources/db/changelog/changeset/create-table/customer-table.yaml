@@ -1,0 +1,48 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-customer-table
+      author: TrungDoan
+      preConditions:
+        onFail: MARK_RAN
+        not:
+          tableExists:
+            tableName: customer
+      changes:
+        - createTable:
+            tableName: customer
+            columns:
+              - column:
+                  name: id
+                  type: INT
+                  autoIncrement: true
+                  constraints:
+                    primaryKeyName: customer_primary_key
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: phone_number
+                  type: varchar(15)
+              - column:
+                  name: password
+                  type: varchar(100)
+              - column:
+                  name: first_name
+                  type: varchar(20)
+              - column:
+                  name: middle_name
+                  type: varchar(20)
+              - column:
+                  name: last_name
+                  type: varchar(20)
+              - column:
+                  name: created_by
+                  type: varchar(20)
+              - column:
+                  name: created_date
+                  type: TIMESTAMP WITHOUT TIME ZONE
+              - column:
+                  name: updated_by
+                  type: varchar(20)
+              - column:
+                  name: updated_date
+                  type: TIMESTAMP WITHOUT TIME ZONE

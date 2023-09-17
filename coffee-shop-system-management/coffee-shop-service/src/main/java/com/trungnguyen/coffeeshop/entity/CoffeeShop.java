@@ -1,11 +1,10 @@
-package com.trungnguyen.coffeeshopservice.entity;
+package com.trungnguyen.coffeeshop.entity;
 
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
-import java.math.BigDecimal;
 import java.util.List;
 
 

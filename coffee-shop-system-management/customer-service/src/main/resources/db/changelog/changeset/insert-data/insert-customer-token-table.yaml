@@ -1,0 +1,113 @@
+databaseChangeLog:
+  - changeSet:
+      id: insert-customer-token-table-2
+      author: TrungDoan
+      changes:
+        - insert:
+            tableName: customer_token
+            columns:
+              - column:
+                  name: customer_id
+                  value: "1"
+              - column:
+                  name: device
+                  value: "Iphone 13"
+              - column:
+                  name: token
+                  value: "SXBob25lMTM" # encode base 64
+              - column:
+                  name: active
+                  value: "1"
+              - column:
+                  name: created_by
+                  value: system
+              - column:
+                  name: created_date
+                  valueDate: "now()"
+              - column:
+                  name: updated_by
+                  value: system
+              - column:
+                  name: updated_date
+                  valueDate: "now()"
+        - insert:
+            tableName: customer_token
+            columns:
+              - column:
+                  name: customer_id
+                  value: "2"
+              - column:
+                  name: device
+                  value: "Iphone 8"
+              - column:
+                  name: token
+                  value: "SXBob25lMTM" # encode base 64
+              - column:
+                  name: active
+                  value: "0"
+              - column:
+                  name: created_by
+                  value: system
+              - column:
+                  name: created_date
+                  valueDate: "now()"
+              - column:
+                  name: updated_by
+                  value: system
+              - column:
+                  name: updated_date
+                  valueDate: "now()"
+        - insert:
+            tableName: customer_token
+            columns:
+              - column:
+                  name: customer_id
+                  value: "2"
+              - column:
+                  name: device
+                  value: "Iphone XS"
+              - column:
+                  name: token
+                  value: "SXBob25lMTM" # encode base 64
+              - column:
+                  name: active
+                  value: "1"
+              - column:
+                  name: created_by
+                  value: system
+              - column:
+                  name: created_date
+                  valueDate: "now()"
+              - column:
+                  name: updated_by
+                  value: system
+              - column:
+                  name: updated_date
+                  valueDate: "now()"
+        - insert:
+            tableName: customer_token
+            columns:
+              - column:
+                  name: customer_id
+                  value: "3"
+              - column:
+                  name: device
+                  value: "Samsung Galaxy S23"
+              - column:
+                  name: token
+                  value: "SXBob25lMTM" # encode base 64
+              - column:
+                  name: active
+                  value: "1"
+              - column:
+                  name: created_by
+                  value: system
+              - column:
+                  name: created_date
+                  valueDate: "now()"
+              - column:
+                  name: updated_by
+                  value: system
+              - column:
+                  name: updated_date
+                  valueDate: "now()"

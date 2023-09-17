@@ -1,10 +1,7 @@
-package com.trungnguyen.coffeeshopservice.repository;
+package com.trungnguyen.coffeeshop.repository;
 
-import com.trungnguyen.coffeeshopservice.entity.Menu;
+import com.trungnguyen.coffeeshop.entity.Menu;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
-
-import java.util.List;
 
 public interface MenuRepository extends JpaRepository<Menu, Integer> {
 

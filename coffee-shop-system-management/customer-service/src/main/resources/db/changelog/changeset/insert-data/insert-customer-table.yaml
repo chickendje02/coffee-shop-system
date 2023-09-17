@@ -1,0 +1,95 @@
+databaseChangeLog:
+  - changeSet:
+      id: insert-customer-table
+      author: TrungDoan
+      changes:
+        - insert:
+            tableName: customer
+            columns:
+              - column:
+                  name: phone_number
+                  value: "0456789123"
+              - column:
+                  name: password
+                  value: "$2a$12$lTq5avPxIWaVoGXAb/Ca5exIeCsC/wk5rv1WEtAvzyB.yD4T0ag3G" #test12345
+              - column:
+                  name: first_name
+                  value: "Bruce"
+              - column:
+                  name: middle_name
+                  value: "Batman"
+              - column:
+                  name: last_name
+                  value: "Wayne"
+              - column:
+                  name: created_by
+                  value: system
+              - column:
+                  name: created_date
+                  valueDate: "now()"
+              - column:
+                  name: updated_by
+                  value: system
+              - column:
+                  name: updated_date
+                  valueDate: "now()"
+        - insert:
+            tableName: customer
+            columns:
+              - column:
+                  name: phone_number
+                  value: "0123456789"
+              - column:
+                  name: password
+                  value: "$2a$12$lTq5avPxIWaVoGXAb/Ca5exIeCsC/wk5rv1WEtAvzyB.yD4T0ag3G" #test12345
+              - column:
+                  name: first_name
+                  value: "Vera"
+              - column:
+                  name: middle_name
+                  value: "Thao"
+              - column:
+                  name: last_name
+                  value: "Vo"
+              - column:
+                  name: created_by
+                  value: system
+              - column:
+                  name: created_date
+                  valueDate: "now()"
+              - column:
+                  name: updated_by
+                  value: system
+              - column:
+                  name: updated_date
+                  valueDate: "now()"
+        - insert:
+            tableName: customer
+            columns:
+              - column:
+                  name: phone_number
+                  value: "0789456123"
+              - column:
+                  name: password
+                  value: "$2a$12$lTq5avPxIWaVoGXAb/Ca5exIeCsC/wk5rv1WEtAvzyB.yD4T0ag3G" #test12345
+              - column:
+                  name: first_name
+                  value: "Sherwin"
+              - column:
+                  name: middle_name
+                  value: "Quoc"
+              - column:
+                  name: last_name
+                  value: "Doan"
+              - column:
+                  name: created_by
+                  value: system
+              - column:
+                  name: created_date
+                  valueDate: "now()"
+              - column:
+                  name: updated_by
+                  value: system
+              - column:
+                  name: updated_date
+                  valueDate: "now()"

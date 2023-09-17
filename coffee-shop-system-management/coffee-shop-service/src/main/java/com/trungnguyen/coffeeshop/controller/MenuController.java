@@ -1,10 +1,9 @@
-package com.trungnguyen.coffeeshopservice.controller;
+package com.trungnguyen.coffeeshop.controller;
 
 
-import com.trungnguyen.coffeeshopservice.entity.Menu;
-import com.trungnguyen.coffeeshopservice.producer.CoffeeShopProducer;
-import com.trungnguyen.coffeeshopservice.service.CoffeeShopService;
-import com.trungnguyen.coffeeshopservice.service.MenuService;
+import com.trungnguyen.coffeeshop.entity.Menu;
+import com.trungnguyen.coffeeshop.producer.CoffeeShopProducer;
+import com.trungnguyen.coffeeshop.service.MenuService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
