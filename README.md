@@ -71,4 +71,5 @@ I haven't finished this yet but my plan is using Github Action to create CI/CD t
 * For System:
    + Apply Cache such as Redis
    + Apply API Gateway
+   + Apply Promethus, Grafana to monitor system
  
