@@ -11,7 +11,7 @@ import java.util.List;
 @EqualsAndHashCode(callSuper = true)
 @Entity
 @Data
-@Table(name = "coffee_shop")
+@Table(name = "coffee_shop", schema = "coffee_shop_management")
 public class CoffeeShop extends BaseEntity {
 
     @Id
@@ -39,6 +39,7 @@ public class CoffeeShop extends BaseEntity {
     @ManyToMany
     @JoinTable(
     name = "menu_shop",
+    schema = "coffee_shop_management",
     joinColumns = @JoinColumn(name = "coffee_shop_id"),
     inverseJoinColumns = @JoinColumn(name = "menu_id"))
     private List<Menu> listMenu;
