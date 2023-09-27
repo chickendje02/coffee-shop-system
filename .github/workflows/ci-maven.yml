@@ -20,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./coffee-shop-system-management
+        working-directory: ./coffee-shop-service
     steps:
       - uses: actions/checkout@v3
       - name: Set up JDK 11
