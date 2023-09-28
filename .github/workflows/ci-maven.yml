@@ -44,9 +44,9 @@ jobs:
         image: postgres
         # Provide the password for postgres
         env:
-          POSTGRES_PASSWORD: sa123456
-          POSTGRES_USER: learning
-          POSTGRES_DB: school_management
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_USER: test12345
+          POSTGRES_DB: coffee_shop_system_management
         # Set health checks to wait until postgres has started
         options: >-
           --health-cmd pg_isready
