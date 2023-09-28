@@ -1,17 +1,15 @@
 package com.trungnguyen.coffeeshop;
 
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.trungnguyen.coffeeshop.consumer.CoffeeShopConsumer;
+import com.trungnguyen.coffeeshop.configuration.DatabaseTestConfiguration;
 import com.trungnguyen.coffeeshop.model.OrderCanceledMessage;
 import com.trungnguyen.coffeeshop.producer.CoffeeShopProducer;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.kafka.core.KafkaTemplate;
-import org.springframework.kafka.test.EmbeddedKafkaBroker;
 import org.springframework.kafka.test.context.EmbeddedKafka;
+import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.TestPropertySource;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
@@ -22,20 +20,13 @@ import org.testcontainers.junit.jupiter.Testcontainers;
 @TestPropertySource(properties = {"spring.kafka.producer.bootstrap-servers=${spring.embedded.kafka.brokers}",
         "spring.kafka.admin.properties.bootstrap.servers=${spring.embedded.kafka.brokers}",
         "spring.liquibase.enabled=false"})
+@ContextConfiguration(classes = {DatabaseTestConfiguration.class})
 public class KafKaIntegrationTest {
-    @Autowired
-    private KafkaTemplate<String, String> template;
-
-    @Autowired
-    private EmbeddedKafkaBroker embeddedKafka;
 
     @Autowired
     private CoffeeShopProducer producer;
 
     private static final ObjectMapper objectMapper = new ObjectMapper();
-
-    @Autowired
-    private CoffeeShopConsumer consumer;
 
     @Test
     public void testExample() throws Exception {
