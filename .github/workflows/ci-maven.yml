@@ -9,15 +9,50 @@
 name: Java CI with Maven
 
 on:
+  workflow_dispatch:
+      inputs:
+        logLevel:
+          description: 'Log level'
+          required: true
+          default: 'warning'
+          type: choice
+          options:
+          - info
+          - warning
+          - debug
+        tags:
+          description: 'Test scenario tags'
+          required: false
+          type: boolean
+        environment:
+          description: 'Environment to run tests against'
+          type: environment
+          required: true
   push:
-    branches: [ "main","implement-ci-cd" ]
+    branches: ["implement-ci-cd" ]
   pull_request:
-    branches: [ "main" ]
+    branches: []
 
 jobs:
   build:
     permissions: write-all
     runs-on: self-hosted
+    services:
+      # Label used to access the service container
+      postgres:
+        # Docker Hub image
+        image: postgres
+        # Provide the password for postgres
+        env:
+          POSTGRES_PASSWORD: sa123456
+          POSTGRES_USER: learning
+          POSTGRES_DB: school_management
+        # Set health checks to wait until postgres has started
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
     defaults:
       run:
         working-directory: ./coffee-shop-system-management/coffee-shop-service
@@ -30,7 +65,7 @@ jobs:
           distribution: 'temurin'
           cache: maven
       - name: Build with Maven
-        run: mvn clean install
+        run: mvn -B package --file pom.xml
 
       # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
       - name: Update dependency graph
