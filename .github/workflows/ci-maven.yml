@@ -12,7 +12,7 @@ on:
   workflow_dispatch:
     inputs:
       path:
-        description: 'Path of service to Run'
+        description: 'Service Name'
         required: true
   push:
     branches: ["implement-ci-cd" ]
@@ -24,7 +24,7 @@ jobs:
     runs-on: [ubuntu-latest]
     defaults:
       run:
-        working-directory: ./coffee-shop-system-management/coffee-shop-service
+        working-directory: ./coffee-shop-system-management/${{ github.event.inputs.path }} #./coffee-shop-system-management/coffee-shop-service
     steps:
       - name: Checkout Source
         uses: actions/checkout@v3
@@ -45,8 +45,10 @@ jobs:
         run: docker login -u ${{secrets.DOCKER_HUB_USERNAME}} -p ${{secrets.DOCKER_HUB_PASSWORD}}
       - name: Build Docker Image
         run: docker build -t chickendje02/coffee-shop-service .
+        if: ${{ github.event.inputs.path }} == coffee-shop-service
       - name: Publish Image to Docker hub
         run: docker push chickendje02/coffee-shop-service:latest
+        if: ${{ github.event.inputs.path }} == coffee-shop-service
   deploy:
     needs: build
     runs-on: [self-hosted]
@@ -55,7 +57,10 @@ jobs:
         run: docker login -u ${{secrets.DOCKER_HUB_USERNAME}} -p ${{secrets.DOCKER_HUB_PASSWORD}}
       - name: Pull Image from docker hub
         run: docker pull chickendje02/coffee-shop-service:latest
+        if: ${{ github.event.inputs.path }} == coffee-shop-service
       - name: Delete old  container
         run: docker rm -f coffee-shop-service-container
+        if: ${{ github.event.inputs.path }} == coffee-shop-service
       - name: Run docker container
         run: docker run -d -p 8081:8081 --name coffee-shop-service-container chickendje02/coffee-shop-service:latest
+        if: ${{ github.event.inputs.path }} == coffee-shop-service
