@@ -11,11 +11,11 @@ name: CICD to AWS EC2
 on:
   workflow_dispatch:
     inputs:
-      path:
-        description: 'Path of service to Run'
+      service-name:
+        description: 'Service Name'
         required: true
-  push:
-    branches: ["implement-ci-cd" ]
+#  push:
+#    branches: ["implement-ci-cd" ]
 
 
 jobs:
@@ -24,7 +24,7 @@ jobs:
     runs-on: [ubuntu-latest]
     defaults:
       run:
-        working-directory: ./coffee-shop-system-management/coffee-shop-service
+        working-directory: ./coffee-shop-system-management/${{ github.event.inputs.service-name }} #./coffee-shop-system-management/coffee-shop-service
     steps:
       - name: Checkout Source
         uses: actions/checkout@v3
@@ -40,13 +40,14 @@ jobs:
       - name: Update dependency graph
         uses: advanced-security/maven-dependency-submission-action@571e99aab1055c2e71a1e2309b9691de18d6b7d6
         with:
-          directory: ./coffee-shop-system-management/coffee-shop-service
+          directory: ./coffee-shop-system-management/${{ github.event.inputs.service-name }}
       - name: Login to Docker Hub
         run: docker login -u ${{secrets.DOCKER_HUB_USERNAME}} -p ${{secrets.DOCKER_HUB_PASSWORD}}
       - name: Build Docker Image
-        run: docker build -t chickendje02/coffee-shop-service .
+        run: docker build -t chickendje02/${{ github.event.inputs.service-name }} .
+#        if: ${{ github.event.inputs.path }} == coffee-shop-service
       - name: Publish Image to Docker hub
-        run: docker push chickendje02/coffee-shop-service:latest
+        run: docker push chickendje02/${{ github.event.inputs.service-name }}:latest
   deploy:
     needs: build
     runs-on: [self-hosted]
@@ -54,8 +55,8 @@ jobs:
       - name: Login to Docker Hub
         run: docker login -u ${{secrets.DOCKER_HUB_USERNAME}} -p ${{secrets.DOCKER_HUB_PASSWORD}}
       - name: Pull Image from docker hub
-        run: docker pull chickendje02/coffee-shop-service:latest
+        run: docker pull chickendje02/${{ github.event.inputs.service-name }}:latest
       - name: Delete old  container
-        run: docker rm -f coffee-shop-service-container
+        run: docker rm -f ${{ github.event.inputs.service-name }}-container
       - name: Run docker container
-        run: docker run -d -p 8081:8081 --name coffee-shop-service-container chickendje02/coffee-shop-service:latest
+        run: docker run -d -p 8081:8081 --name ${{ github.event.inputs.service-name }}-container chickendje02/${{ github.event.inputs.service-name }}:latest
