@@ -12,4 +12,8 @@ public class CoffeeShopProducer {
     @Autowired
     private KafkaTemplate<String, String> kafkaTemplate;
 
+
+    public void send(String topic, String payload) {
+        kafkaTemplate.send(topic, payload);
+    }
 }

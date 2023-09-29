@@ -11,7 +11,7 @@ import java.math.BigDecimal;
 @EqualsAndHashCode(callSuper = true)
 @Entity
 @Data
-@Table(name = "menu")
+@Table(name = "menu", schema = "coffee_shop_management")
 public class Menu extends BaseEntity {
 
     @Id
@@ -23,8 +23,5 @@ public class Menu extends BaseEntity {
 
     @Column
     private BigDecimal price;
-
-
-
 
 }
