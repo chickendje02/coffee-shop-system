@@ -10,7 +10,10 @@ name: CICD to AWS EC2
 
 on:
   workflow_dispatch:
-  
+    inputs:
+      path:
+        description: 'Path of service to Run'
+        required: true
   push:
     branches: ["implement-ci-cd" ]
 
@@ -19,22 +22,6 @@ jobs:
   build:
     permissions: write-all
     runs-on: [ubuntu-latest]
-    #    services:
-#      # Label used to access the service container
-#      postgres:
-#        # Docker Hub image
-#        image: postgres
-#        # Provide the password for postgres
-#        env:
-#          POSTGRES_PASSWORD: postgres
-#          POSTGRES_USER: test12345
-#          POSTGRES_DB: coffee_shop_system_management
-#        # Set health checks to wait until postgres has started
-#        options: >-
-#          --health-cmd pg_isready
-#          --health-interval 10s
-#          --health-timeout 5s
-#          --health-retries 5
     defaults:
       run:
         working-directory: ./coffee-shop-system-management/coffee-shop-service
@@ -64,6 +51,8 @@ jobs:
     needs: build
     runs-on: [self-hosted]
     steps:
+      - name: Login to Docker Hub
+        run: docker login -u ${{secrets.DOCKER_HUB_USERNAME}} -p ${{secrets.DOCKER_HUB_PASSWORD}}
       - name: Pull Image from docker hub
         run: docker pull trungnguyen/coffee-shop-service:latest
       - name: Delete old  container
