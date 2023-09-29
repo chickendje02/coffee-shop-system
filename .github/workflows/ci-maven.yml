@@ -59,7 +59,7 @@ jobs:
       - name: Build Docker Image
         run: docker build -t chickendje02/coffee-shop-service .
       - name: Publish Image to Docker hub
-        run: docker push docker push chickendje02/coffee-shop-service:latest
+        run: docker push chickendje02/coffee-shop-service:latest
   deploy:
     needs: build
     runs-on: [self-hosted]
