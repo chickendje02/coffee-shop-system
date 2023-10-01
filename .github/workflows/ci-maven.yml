@@ -51,7 +51,7 @@ jobs:
   deploy-coffee-shop-service:
     needs: build
     runs-on: [self-hosted]
-    if: ${{ github.event.inputs.service-name }} == coffee-shop-service
+    if: ${{ github.event.inputs.service-name }} == 'coffee-shop-service'
     steps:
       - name: Checkout Source
         uses: actions/checkout@v3
@@ -64,7 +64,7 @@ jobs:
   deploy-process-order-service:
     needs: build
     runs-on: [order-service]
-    if: ${{ github.event.inputs.service-name }} == process-order-service
+    if: ${{ github.event.inputs.service-name }} == 'process-order-service'
     steps:
       - name: Checkout Source
         uses: actions/checkout@v3
