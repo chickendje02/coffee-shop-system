@@ -48,15 +48,34 @@ jobs:
 #        if: ${{ github.event.inputs.path }} == coffee-shop-service
       - name: Publish Image to Docker hub
         run: docker push chickendje02/${{ github.event.inputs.service-name }}:latest
-  deploy:
+  deploy-coffee-shop-service:
     needs: build
     runs-on: [self-hosted]
+    if: ${{ github.event.inputs.service-name }} == coffee-shop-service
     steps:
-      - name: Login to Docker Hub
-        run: docker login -u ${{secrets.DOCKER_HUB_USERNAME}} -p ${{secrets.DOCKER_HUB_PASSWORD}}
-      - name: Pull Image from docker hub
-        run: docker pull chickendje02/${{ github.event.inputs.service-name }}:latest
-      - name: Delete old  container
-        run: docker rm -f ${{ github.event.inputs.service-name }}-container
-      - name: Run docker container
-        run: docker run -d -p 8081:8081 --name ${{ github.event.inputs.service-name }}-container chickendje02/${{ github.event.inputs.service-name }}:latest
+      - name: Run script
+        env:
+          DOCKER_HUB_USERNAME : ${{secrets.DOCKER_HUB_USERNAME}}
+          DOCKER_HUB_PASSWORD : ${{secrets.DOCKER_HUB_PASSWORD}}
+          SERVICE_NAME : ${{github.event.inputs.service-name}}
+        run: bash script.sh
+  deploy-process-order-service:
+    needs: build
+    runs-on: [order-service]
+    if: ${{ github.event.inputs.service-name }} == process-order-service
+    steps:
+      - name: Run script
+        env:
+          DOCKER_HUB_USERNAME: ${{secrets.DOCKER_HUB_USERNAME}}
+          DOCKER_HUB_PASSWORD: ${{secrets.DOCKER_HUB_PASSWORD}}
+          SERVICE_NAME: ${{github.event.inputs.service-name}}
+        run: bash script.sh
+       #    steps:
+#      - name: Login to Docker Hub
+#        run: docker login -u ${{secrets.DOCKER_HUB_USERNAME}} -p ${{secrets.DOCKER_HUB_PASSWORD}}
+#      - name: Pull Image from docker hub
+#        run: docker pull chickendje02/${{ github.event.inputs.service-name }}:latest
+#      - name: Delete old  container
+#        run: docker rm -f ${{ github.event.inputs.service-name }}-container
+#      - name: Run docker container
+#        run: docker run -d -p 8081:8081 --name ${{ github.event.inputs.service-name }}-container chickendje02/${{ github.event.inputs.service-name }}:latest

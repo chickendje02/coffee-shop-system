@@ -1,0 +1,13 @@
+# This for reuse deployment step
+name: Reusable Workflow
+on:
+  workflow_call:
+
+jobs:
+  reusable_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Run tests
+        run: npm test
