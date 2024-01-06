@@ -47,7 +47,7 @@ For now, I will focus on these endpoint only. For more information, you can star
 I haven't finished the Testing yet. But I plan to use these
 * Unit Test - To make sure function work right
 * Integration Test - To test for 3rd Party calling API
-* Load Test - Using JUnit for Load Testing
+* Load Test - Using JMeter for Load Testing
 -------------------------------------------------------------------
 ## Part2
 ## Setup
